@@ -1,10 +1,120 @@
-/* backend/response/css/estilos.css */
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: system-ui, sans-serif;
-    margin: 2rem;
-    color: #24292f;
+    margin: 0;
+    background-color: #f4f7f1;
+    color: #303b32;
+    line-height: 1.6;
+}
+
+/* Cabecera */
+header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: white;
+    padding: 15px 40px;
+    border-bottom: 3px solid #39834b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+header img {
+    width: 100px;
+    height: auto;
+}
+
+header span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #26713b;
+}
+
+/* Menú de navegación */
+nav {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #326b40;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+nav a:hover {
+    background-color: #e4f0e3;
+    color: #174d29;
+}
+
+/* Contenido principal */
+main {
+    max-width: 1100px;
+    margin: 45px auto;
+    padding: 40px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+    min-height: 300px;
 }
 
 h1 {
-    color: #1a7f37;
+    color: #267b3d;
+    font-size: 2.2rem;
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e1ecdf;
+    padding-bottom: 12px;
+}
+
+main p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+/* Pie de página */
+footer {
+    text-align: center;
+    background-color: #244c32;
+    color: white;
+    padding: 22px;
+    margin-top: auto;
+}
+
+/* Adaptación a móviles */
+@media (max-width: 700px) {
+    header {
+        flex-wrap: wrap;
+        padding: 15px 20px;
+    }
+
+    header img {
+        width: 80px;
+    }
+
+    nav {
+        width: 100%;
+        margin-left: 0;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        padding: 8px 10px;
+    }
+
+    main {
+        margin: 20px;
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
 }
