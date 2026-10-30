@@ -48,18 +48,17 @@ sequenceDiagram
     autonumber
     participant N as Navegador
     participant W as web - nginx
-    participant B as backend - ASP.NET Core / Kestrel
+    participant B as backend - Kestrel
 
-    N->>W: GET http://localhost:8080/
-    Note over W: Puerto 8080 del equipo → puerto 80 del contenedor
-    W->>B: Proxy inverso a http://backend:8080
-    Note over W,B: Se conserva la cabecera Host original
+    N->>W: Petición HTTP a localhost:8080
+    Note over N,W: Puerto 8080 del equipo hacia puerto 80 del contenedor
+    W->>B: Proxy inverso a backend:8080
+    Note over W,B: Red interna de Docker
     B-->>W: Respuesta HTTP (HTML, CSS o imagen)
-    W-->>N: Respuesta HTTP
+    W-->>N: Respuesta HTTP al navegador
 
     Note over W: Único servicio publicado al exterior
-    Note over B: Puerto 8080 interno. Sin puertos publicados
-
+    Note over B: Puerto 8080 interno, sin publicar al exterior
 ```
 
 ### Flujo de una petición
