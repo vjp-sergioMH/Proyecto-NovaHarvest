@@ -43,22 +43,50 @@ Para detener la aplicación, vuelve a la terminal donde se está ejecutando y pu
 La aplicación se organiza en dos servicios que se ejecutan en contenedores Docker: web y backend.
 
 ### Diagrama de arquitectura
-```mermaid
-sequenceDiagram
-    autonumber
-    participant N as Navegador
-    participant W as web - nginx
-    participant B as backend - Kestrel
-
-    N->>W: Petición HTTP a localhost:8080
-    Note over N,W: Puerto 8080 del equipo hacia puerto 80 del contenedor
-    W->>B: Proxy inverso a backend:8080
-    Note over W,B: Red interna de Docker
-    B-->>W: Respuesta HTTP (HTML, CSS o imagen)
-    W-->>N: Respuesta HTTP al navegador
-
-    Note over W: Único servicio publicado al exterior
-    Note over B: Puerto 8080 interno, sin publicar al exterior
+```text
+                 PETICIÓN HTTP
+              http://localhost:8080
+                       |
+                       v
+          +---------------------------+
+          |       NAVEGADOR           |
+          |       Equipo local        |
+          +---------------------------+
+                       |
+                       v
+   +------------------------------------------+
+   |             CONTENEDOR WEB               |
+   |                                          |
+   |              NGINX 1.27                  |
+   |                                          |
+   |       Puerto 80 (interno)                |
+   |       Puerto 8080 (externo)              |
+   +------------------------------------------+
+                       |
+                       | Proxy inverso
+                       | http://backend:8080
+                       v
+   +------------------------------------------+
+   |            CONTENEDOR BACKEND            |
+   |                                          |
+   |          ASP.NET Core 10                 |
+   |               Kestrel                    |
+   |                                          |
+   |          Puerto 8080                     |
+   |          (solo red interna Docker)      |
+   +------------------------------------------+
+                       |
+                       | Respuesta HTTP
+                       v
+              +----------------+
+              |      NGINX     |
+              +----------------+
+                       |
+                       | Respuesta al navegador
+                       v
+              +----------------+
+              |   NAVEGADOR    |
+              +----------------+
 ```
 
 ### Flujo de una petición
