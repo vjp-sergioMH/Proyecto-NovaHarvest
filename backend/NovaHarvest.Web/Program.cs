@@ -10,7 +10,7 @@ app.MapGet("/", () => Results.Content("""
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NovaHarvest - Inicio</title>
-    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="/css/sites.css">
 </head>
 <body>
     <header>
@@ -44,7 +44,7 @@ app.MapGet("/about", () => Results.Content("""
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NovaHarvest - Acerca de</title>
-    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="/css/sites.css">
 </head>
 <body>
     <header>
@@ -81,7 +81,7 @@ $"""
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NovaHarvest - Estado</title>
-    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="/css/sites.css">
 </head>
 <body>
     <header>
