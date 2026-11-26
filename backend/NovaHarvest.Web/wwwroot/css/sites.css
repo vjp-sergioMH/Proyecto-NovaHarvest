@@ -88,6 +88,11 @@ footer {
     margin-top: auto;
 }
 
+.urgent {
+    color: red;
+    font-weight: bold;
+}
+
 /* Adaptación a móviles */
 @media (max-width: 700px) {
     header {
