@@ -16,7 +16,7 @@
 <p class="@(Model.DaysToConsume <= 2 && Model.NewAvailableKg > 0 ? "urgent" : null)">Días para consumirlo:
     @Model.DaysToConsume</p>
 
-    <p>Precio original: @Model.Surplus.PricePerKg*0.7m.ToString("C") / kg</p>
+    <p>Precio original: @Model.Surplus.PricePerKg.ToString("C") / kg</p>
 
     <p>Precio de excedente: @Model.SurplusPrice.ToString("C") / kg</p>
 
