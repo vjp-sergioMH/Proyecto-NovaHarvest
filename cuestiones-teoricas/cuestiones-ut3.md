@@ -164,6 +164,13 @@ En mi archivo _ViewImports.cshtml no aparece ningún namespace, tengo estos dos 
 
     Porque en Pages/Reservations/Ticket.cshtml he definido expresamente @page "/ticket". Esta ruta personalizada sustituye a la ruta convencional que correspondería a la ubicación del archivo (/Reservations/Ticket). Por tanto, la dirección correcta para acceder al justificante es /ticket, mientras que /reservations/ticket no tiene ninguna página asociada y devuelve un error 404.
 
+    ```csharp
+    @page "/ticket"
+    @{
+        Layout = null;
+    }
+    ```
+
 7. **Tipos y operadores**
 
 | Dato calculado | Tipo de C# | Operadores utilizados | ¿Por qué se utiliza ese tipo? |
