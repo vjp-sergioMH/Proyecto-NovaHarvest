@@ -6,6 +6,34 @@
 
     Cuando un usuario solicita /surplus, ASP.NET Core ejecuta el código correspondiente y devuelve al navegador el HTML generado. Por eso, el navegador recibe HTML y no el código Razor original.
 
+    **WriteLiteral y cshtml**
+
+    ```csharp
+    WriteLiteral("</p>\r\n<p>Página generada por ASP.NET Core (Kestrel)</p>");
+    ```
+
+    ```html
+    <p>Página generada por ASP.NET Core (Kestrel)</p>
+    ```
+
+    **Write y cshtml**
+
+    ```csharp
+    Write(Model.ServerDateTime.ToString("dd/MM/yyyy HH:mm:ss")
+    ```
+
+    ```csharp
+    @Model.ServerDateTime.ToString("dd/MM/yyyy HH:mm:ss")
+    ```
+
+    **¿Por qué no hay ningún .cshtml dentro del contenedor?**
+
+    Porque los archivos `.cshtml` se compilan antes de ejecutar la aplicación.
+
+    Los archivos `.cshtml` ya se han transformado en código C# y se han incluido en el  `.dll`, por lo que no es necesario tener los archivos originales dentro del contenedor final.
+
+
+
 2. **Tecnologías**
 
     En mi proyecto NovaHarvest, la línea del precio del excedente se escribe de distintas formas según la tecnología utilizada:
